@@ -14,6 +14,7 @@ import { AddreviewComponent } from './components/addreview/addreview.component';
 import { DeletereviewComponent } from './components/deletereview/deletereview.component';
 import { EditreviewComponent } from './components/editreview/editreview.component';
 import { ViewreviewComponent } from './components/viewreview/viewreview.component';
+import { GooglePayButtonModule } from '@google-pay/button-angular';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ViewreviewComponent } from './components/viewreview/viewreview.componen
     UserRoutingModule,
     ReactiveFormsModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    GooglePayButtonModule
   ]
 })
 export class UserModule { }

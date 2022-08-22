@@ -8,8 +8,6 @@ import { AddadminComponent } from './components/addadmin/addadmin.component';
 import { DeletegroundComponent } from './components/editground/deleteground/deleteground.component';
 import { DisplayUsersComponent } from './components/display-users/display-users.component';
 import { HeaderComponent } from './components/header/header.component';
-import { DeleteuserComponent } from './components/deleteuser/deleteuser.component';
-import { EdituserComponent } from './components/edituser/edituser.component';
 import { AdduserComponent } from './components/adduser/adduser.component';
 import { GrounddetailsComponent } from './components/grounddetails/grounddetails.component';
 
@@ -25,8 +23,6 @@ const routes: Routes = [
       { path: 'editGround/:id', component: EditgroundComponent },
       { path: 'deleteGround/:id', component: DeletegroundComponent },
       { path: 'adduser', component: AdduserComponent },
-      { path: 'edituser', component: EdituserComponent },
-      { path: 'deleteuser', component: DeleteuserComponent },
       {path:'grounddetails', component:GrounddetailsComponent},
       { path: '', redirectTo: '/admin/home', pathMatch: 'full' },
 

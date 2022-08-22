@@ -1,3 +1,4 @@
+import { booking } from "./booking";
 import { Roles } from "./roles";
 
 export class Userd {
@@ -7,6 +8,6 @@ export class Userd {
     password!: string;
     mobile!:string;
     roles!:Roles[];
-    bookings!:string[];
+    bookings!:booking[];
     constructor(){}
 }

@@ -9,19 +9,19 @@
               <div class="form-group form-floating">
                 <input type="date"
                 id="GroundName" placeholder="Enter From Date" [(ngModel)]="bookings.fromDate"
-                class="form-control" formControlName="fromDate"/>
+                class="form-control" formControlName="fromDate" required/>
                 <label>FromDate</label>
               </div>
               <div class="form-group form-floating">
                   <input type="date"
                   id="GroundPrice" placeholder="Enter To date" [(ngModel)]="bookings.toDate"
-                  class="form-control" formControlName="toDate"/>
+                  class="form-control" formControlName="toDate" required/>
                   <label>ToDate</label>
               </div>
                 <div class="form-group form-floating">
                   <input type="number"
                    id="GroundLocation" placeholder="Enter Number of Persons" [(ngModel)]="bookings.numberOfPersons"
-                   class="form-control" formControlName="numberOfPersons" />
+                   class="form-control" formControlName="numberOfPersons"  required/>
                    <label>number Of Persons</label>
                 </div>
                 <div class="form-group form-floating">
@@ -30,8 +30,17 @@
                   class="form-control" formControlName="description"/>
                   <label>Description</label>
                 </div>
+<google-pay-button 
+                  environment="TEST"
+                   buttonType="buy"
+                   buttonColor="black"
+                   [paymentRequest]="paymentRequest"
+                   (loadpaymentdata)="onLoadPaymentData($event)"
+                   (error)="onError($event)"
+                   [paymentAuthorizedCallback]="onPaymentDataAuthorized"
 
-             <button class="btn btn-primary me-2" type="submit" (click)=handleGround() >Save Changes</button>
+></google-pay-button>
+            <!-- <button class="btn btn-primary me-2" type="submit" (click)=handleGround() >Save Changes</button>-->
              <a routerLink="../dashboard" href="" class="btn btn-white-link">Cancel</a>
             </form>
                   </div>

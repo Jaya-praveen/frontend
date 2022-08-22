@@ -43,7 +43,7 @@ booking=new booking();
 
   addReview(id:number){
     //need to pass the userid
-    this.router.navigate(['/user/addreview',this.auth.usermail,id]);
+    this.router.navigate(['/user/addreview',localStorage.getItem('email'),id]);
   }
 
 
