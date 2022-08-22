@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { UserService } from './../../../../service/user.service';
 import { Roles } from 'src/app/classes/roles';
 import { Userd } from 'src/app/classes/userd';
+import { booking } from 'src/app/classes/booking';
 
 
 
@@ -20,6 +21,7 @@ editUser!: Userd;
 editFormUser!:FormGroup;
 roles!:Roles[];
 role!:Roles;
+bookings!:booking[];
   closeResult!: string;
   delId: string | undefined;
   constructor(private formbuilder:FormBuilder,private modalService:NgbModal,private httpClient:HttpClient,private service:UserService) {
@@ -105,7 +107,7 @@ openEditUser(contentEdit: any,user: Userd){
   });
 }
 
-
+/*
 openDeleteUser(contentDelete: any, user:Userd) {
   this.delId = user.userId;
 this.modalService.open(contentDelete, {
@@ -113,7 +115,9 @@ this.modalService.open(contentDelete, {
  size: 'lg'
 });
 }
+*/
 
+/*
 onDelete(){
   const deleteURL = 'http://localhost:8080/admin/deleteUser/' + this.delId;
     this.httpClient.delete(deleteURL)
@@ -122,5 +126,5 @@ onDelete(){
         this.modalService.dismissAll();
       });
 }
-
+*/
 }

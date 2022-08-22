@@ -44,12 +44,22 @@
                           
                         </td>
                         <td>
-                            <span class="text-muted">{{user.bookings}}</span><br>
+                          
                             <span class="text-muted" *ngIf=(!user.bookings) >no bookings </span>
+                            <div >
+                              <span class="text-muted ms-3" *ngFor="let booking of user.bookings">
+                                Ground Id-{{booking.groundId}}
+                              {{booking.groundname}}
+                              </span><br>
+
+                     </div>
+
+
+
                         </td>
                           <td>
                           
-                            <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2" (click)="openDeleteUser(contentDeleteUser, user)"><i class="fa fa-trash"></i> </button>
+                         <!-- <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2" (click)="openDeleteUser(contentDeleteUser, user)"><i class="fa fa-trash"></i> </button> -->
                             <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2" (click)="openEditUser(contentEdituser,user)"><i class="fa fa fa-eye"></i> </button>
                             
                           </td>
@@ -136,7 +146,7 @@
       
       
       
-      <!--delete ground-->
+      <!--delete user
       <ng-template #contentDeleteUser let-modal>
         <div class="modal-header">
           <h4 class="modal-title">Confirm Delete</h4>
@@ -156,7 +166,7 @@
       </ng-template>
       
       
-      
+    -->
       
             
 

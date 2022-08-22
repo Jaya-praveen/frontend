@@ -9,10 +9,21 @@
           <div *ngFor="let ground of grounds">
           <div class="card shadow mt-2 mb-4" id="grid{{ground.groundId}}" (click)=bookGround(ground.groundId)>
               <img class="card-img-top" src="{{ground.imageURL}}" class="rounded" width="286" height="236" alt="Card image cap">
+              <div *ngIf="ground.Status==='true';else myFlagTrue;">
+              <a   class="badge-corner badge-corner-dark">
+                <span class="fa fa-ban"></span>
+              </a>
+            </div>
+            <ng-template #myFlagTrue>
+              <a  class="badge-corner badge-corner-alt">
+                <span class="fa fa-check-circle-o"></span>
+              </a>
+            </ng-template>
               <div class="card-body">
                   <h4 class="card-title"><a [title]="ground.groundName + ' details'">
                       {{ ground.groundName }}
                     </a></h4>
+        
                     <p class="card-text"*ngIf="ground.groundAddress">
                       <strong> Place:</strong> {{ ground.groundAddress }}</p>
                   <p class="card-text"*ngIf="ground.groundDescription">
@@ -23,7 +34,7 @@
                        <strong> Price:</strong> {{ ground.price }}</p>
 
                        <a class="btn btn-primary me-2" (click)=viewReview(ground.groundId) id="editGround">Reviews</a>
-              <a ><button class="btn btn-primary me-2" [disabled]="ground.Status==false" (click)=addBooking(ground.groundId) id="addGround">Book</button></a>
+              <a ><button class="btn btn-primary me-2" [disabled]="ground.Status==='false'" (click)=addBooking(ground.groundId) id="addGround">Book</button></a>
               </div>
 
               

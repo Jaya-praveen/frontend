@@ -35,6 +35,8 @@ export class GroundComponent implements OnInit {
   ngOnInit(): void {
     this.groundId=this.route.snapshot.params['groundId'];
   this.bookGroundForm = this.formBuilder.group({
+
+
     fromDate: [
       '', 
       [Validators.required, 
@@ -75,6 +77,63 @@ export class GroundComponent implements OnInit {
       alert(err)
     }
   });
+  }
+
+  paymentRequest:google.payments.api.PaymentDataRequest={
+apiVersion:2,
+apiVersionMinor:0,
+allowedPaymentMethods:[
+  {
+    type:'CARD',
+    parameters:{
+      allowedAuthMethods:['PAN_ONLY','CRYPTOGRAM_3DS'],
+      allowedCardNetworks:['AMEX','VISA','MASTERCARD']
+    },
+
+    tokenizationSpecification: {
+      type:'PAYMENT_GATEWAY',
+      parameters:{
+      gateway:'example',
+      gatewayMerchantId:'exampleGatewayMerchantId'
+      }
+    }
+  }
+],
+merchantInfo:{
+  merchantId:'123',
+  merchantName:'demo', 
+},
+transactionInfo:{
+  totalPriceStatus:'FINAL',
+  totalPriceLabel:'Total',
+  totalPrice:'0.10',
+  currencyCode:'INR',
+  countryCode:'IN'
+
+},
+callbackIntents:['PAYMENT_AUTHORIZATION']
+  };
+
+
+  onLoadPaymentData=(
+    event:Event
+  ): void => {
+    const eventDetail =event as CustomEvent<google.payments.api.PaymentData>;
+    console.log('load paymnet data',eventDetail.detail);
+  }
+
+  onPaymentDataAuthorized:google.payments.api.PaymentAuthorizedHandler=(
+paymentData
+  )=>{
+    console.log('payment authorized',paymentData);
+    this.handleGround();
+    return {
+      transactionState: 'SUCCESS'
+    };
+  }
+
+  onError=(event: ErrorEvent):void =>{
+    console.error('error',event.error);
   }
 
 

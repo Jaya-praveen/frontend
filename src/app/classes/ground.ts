@@ -5,7 +5,7 @@ export class ground{
     GroundTiming!: string;
     groundAddress!: string;
     groundDescription!: string;
-    Status!: boolean;
+    Status!:string;
     price!: string; 
     capacity!:string;
 }

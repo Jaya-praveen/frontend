@@ -10,13 +10,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddadminComponent } from './components/addadmin/addadmin.component';
 import { DeletegroundComponent } from './components/editground/deleteground/deleteground.component';
 import { DisplayUsersComponent } from './components/display-users/display-users.component';
-import { EdituserComponent } from './components/edituser/edituser.component';
-import { DeleteuserComponent } from './components/deleteuser/deleteuser.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from 'src/app/service/auth.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GrounddetailsComponent } from './components/grounddetails/grounddetails.component';
 import { AdduserComponent } from './components/adduser/adduser.component';
+import { GooglePayButtonModule } from '@google-pay/button-angular';
 
 
 @NgModule({
@@ -29,8 +28,6 @@ import { AdduserComponent } from './components/adduser/adduser.component';
     AddadminComponent,
     DeletegroundComponent,
     DisplayUsersComponent,
-    EdituserComponent,
-    DeleteuserComponent,
     AdduserComponent,
     GrounddetailsComponent
   ],
@@ -39,7 +36,8 @@ import { AdduserComponent } from './components/adduser/adduser.component';
     AdminRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    GooglePayButtonModule
   ],
   providers: [
     {

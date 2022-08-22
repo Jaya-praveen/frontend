@@ -35,17 +35,18 @@ export class AddreviewComponent implements OnInit {
   
   addReview(){
   
-  this.service.addReview(this.userEmail,this.groundId,this.review).subscribe(
-    data=>{
+  this.service.addReview(this.userEmail,this.groundId,this.review).subscribe({
+    next: (data)=>{
       console.log(data)
       alert("Review added Successfully")
       this.router.navigate(['/user/dashboard'])
     },
-    error=>{
-      console.log(error)
+    error:
+    err=>{
+      console.log(err)
       this.router.navigate(['/user/dashboard'])
     }
-  )
+  })
   }
 
 }
